@@ -9,9 +9,16 @@
   ],
   "scripts": {
     "ci": "yarn install --frozen-lockfile",
-    "test": "lerna run test --",
-    "deploy": "lerna run deploy --",
-    "remove": "lerna run remove --no-bail --",
+    "audit": "audit-ci --moderate",
+    "test": "lerna run test --stream --",
+    "test:globals": "lerna run test --stream --scope '@globals/*' --",
+    "test:features": "lerna run test --stream --scope '@features/*' --",
+    "deploy": "lerna run deploy --stream --",
+    "deploy:globals": "lerna run deploy --stream --scope '@globals/*' --",
+    "deploy:features": "lerna run deploy --stream --scope '@features/*' --",
+    "remove": "lerna run remove --no-bail --stream --",
+    "remove:globals": "lerna run remove --no-bail --stream --scope '@globals/*' --",
+    "remove:features": "lerna run remove --no-bail --stream --scope '@features/*' --",
     "print": "sls print"
   },
   "devDependencies": {
