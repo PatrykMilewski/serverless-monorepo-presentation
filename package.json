@@ -1,0 +1,21 @@
+{
+  "name": "@features/third-stack",
+  "version": "1.0.0",
+  "license": "ISC",
+  "private": true,
+  "workspaces": [
+    "stacks/*",
+    "anotherStack"
+  ],
+  "scripts": {
+    "ci": "yarn install --frozen-lockfile",
+    "test": "lerna run test --",
+    "deploy": "lerna run deploy --",
+    "remove": "lerna run remove --no-bail --",
+    "print": "sls print"
+  },
+  "devDependencies": {
+    "lerna": "3.22.1",
+    "audit-ci": "3.1.1"
+  }
+}
