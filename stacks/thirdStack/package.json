@@ -10,7 +10,7 @@
     "print": "sls print"
   },
   "dependencies": {
-    "lodash": "4.17.5",
+    "lodash": "4.17.19",
     "uuid": "8.2.0",
     "lambda-log": "2.4.0",
     "serialize-error": "7.0.1",
