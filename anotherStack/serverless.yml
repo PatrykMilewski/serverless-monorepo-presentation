@@ -1,0 +1,18 @@
+service: AnotherStack
+
+provider:
+  name: aws
+  stage: ${opt:stage}
+  stackName: ${self:service}-${opt:stage}
+  runtime: nodejs12.x
+  memorySize: 128
+  timeout: 5
+
+resources:
+  Resources:
+
+    Topic:
+      Type: AWS::SNS::Topic
+      Properties:
+        DisplayName: "Example topic"
+        TopicName: ${self:custom.service}-${opt:stage}-exampleTopic

@@ -1,0 +1,26 @@
+service: SecondStack
+
+plugins:
+  - serverless-plugin-log-retention
+  - serverless-webpack
+  - serverless-iam-roles-per-function
+
+
+custom:
+  logRetentionInDays: 30
+
+  serverless-iam-roles-per-function:
+    defaultInherit: true
+
+provider:
+  name: aws
+  stage: ${opt:stage}
+  stackName: ${self:service}-${opt:stage}
+  runtime: nodejs12.x
+  memorySize: 128
+  timeout: 5
+
+functions:
+  lambda:
+    handler: src/handler.handler
+    name: ${self:service}-${opt:stage}
